@@ -5,19 +5,16 @@ public class blockedbillboard {
 	public static void main(String[]args) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(in.readLine());
-		int xl1 = Integer.valueOf(st.nextToken()), yl1 = Integer.valueOf(st.nextToken()), xl4 = Integer.valueOf(st.nextToken()), yl4 = Integer.valueOf(st.nextToken()), xl2 = xl4, yl2 = yl1, xl3 = xl1, yl3 = yl4;
-		st = new StringTokenizer(in.readLine());
-		int xf1 = Integer.valueOf(st.nextToken()), yf1 = Integer.valueOf(st.nextToken()), xf4 = Integer.valueOf(st.nextToken()), yf4 = Integer.valueOf(st.nextToken()), xf2 = xf4, yf2 = yf1, xf3 = xf1, yf3 = yf4;
-
-		//case where good b is completely covering bad b
-		if (xf3 < xl3 && yf3 < yf3 && xf2 > xl2 && yf2 > yl2) {
-			System.out.println("0");
-		}
-		//case where billboards partially obscure eachother but need to cover whole area of billboard
-
-		//case where good b is completely not covering bad b
 		
-		//find in between cords for both bad and good billboards
-		//find diff between those cords
+		char[][] a = new char[2000][2000];
+		int ax1 = Integer.valueOf(st.nextToken())+1000, ay1 = Integer.valueOf(st.nextToken())+1000, ax2 = Integer.valueOf(st.nextToken())+1000, ay2 = Integer.valueOf(st.nextToken())+1000;
+		int bx1 = Integer.valueOf(st.nextToken())+1000, by1 = Integer.valueOf(st.nextToken())+1000, bx2 = Integer.valueOf(st.nextToken())+1000, by2 = Integer.valueOf(st.nextToken())+1000;
+		
+		int ymin = Math.min(Math.min(ay1, ay2), Math.min(by1, by2));
+		int ymax = Math.max(Math.max(ay1, ay2), Math.max(by1, by2));
+		int xmin = Math.min(Math.min(ax1, ax2), Math.min(bx1, bx2));
+		int xmax = Math.max(Math.max(ax1, ax2), Math.max(bx1, bx2));
+		
+		
 	}
 }
