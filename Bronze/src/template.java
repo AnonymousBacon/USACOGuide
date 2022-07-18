@@ -19,7 +19,7 @@ public class template {
 	}
 	
 	static void init() throws IOException {
-		StringTokenizer st = new StringTokenizer(in. nextLine());
+		StringTokenizer st = new StringTokenizer(in.nextLine());
 	}
 	
 	static void solve() {
