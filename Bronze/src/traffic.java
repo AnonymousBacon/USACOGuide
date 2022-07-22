@@ -5,7 +5,7 @@ public class traffic {
 	static Scanner in;
 //	static BufferedReader in;
 	static PrintWriter out;
-	static int n;
+	static int n, low, up;
 	static String[][] lines;
 	
 	public static void main(String[]args) throws IOException {
@@ -30,9 +30,25 @@ public class traffic {
 			lines[1][i] = st.nextToken();
 			lines[2][i] = st.nextToken();
 		}
+		low = 0;
+		up = 1000;
 	}
 	
 	static void solve() {
-		
+		for (int i = lines.length-1; i >= 0; i++) {
+			if (lines[0][i].equals("on")) {
+				low -= Integer.parseInt(lines[2][i]);
+				up -= Integer.parseInt(lines[2][i]);
+			}
+			if (lines[0][i].equals("none")) {
+				low = Math.max(low, Integer.parseInt(lines[2][i]));
+				up = Math.min(up, Integer.parseInt(lines[3][i]));
+				
+			}
+			if (lines[0][i].equals("off")) {
+				low += Integer.parseInt(lines[2][i]);
+				up += Integer.parseInt(lines[2][i]);
+			}
+		}
 	}
 }

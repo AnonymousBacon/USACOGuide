@@ -23,6 +23,6 @@ public class template {
 	}
 	
 	static void solve() {
-		
+		System.out.println(Math.max(1, 1));
 	}
 }
