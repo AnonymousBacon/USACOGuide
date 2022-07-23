@@ -7,6 +7,7 @@ public class measurement {
 	static PrintWriter out;
 	static int n, b, e, m, output, day[], adjust[];
 	static String[]names;
+	static boolean[]maxes, maxes1;
 	
 	public static void main(String[]args) throws IOException {
 //		in = new Scanner(System.in);
@@ -23,6 +24,9 @@ public class measurement {
 	static void init() throws IOException {
 		n = Integer.parseInt(in.readLine());
 		b = 7; e = 7; m = 7;
+		
+		maxes = new boolean[3];
+		maxes1 = new boolean[3];
 		
 		day = new int[n];
 		names = new String[n];
@@ -56,6 +60,7 @@ public class measurement {
 		}
 		
 		for (int i = 0; i < n; i++) {
+			
 			if (names[i].equals("Bessie")) {
 				b += adjust[i];
 			}
@@ -66,15 +71,37 @@ public class measurement {
 				m += adjust[i];
 			}
 			
-			if (b > e && b > m) {
+			int max = Math.max(Math.max(b, e), m);
+			
+			for (int a = 0; a < 3; a++) {
+				if (b == max) {
+					maxes[0] = true;
+				}
+				else {
+					maxes[0] = false;
+				}
+				if (e == max) {
+					maxes[1] = true;
+				}
+				else {
+					maxes[1] = false;
+				}
+				if (m == max) {
+					maxes[2] = true;
+				}
+				else {
+					maxes[2] = false;
+				}
+			}
+			
+			if (!Arrays.equals(maxes1, maxes)) {
 				output++;
 			}
-			else if (e > b && e > m) {
-				output++;
-			}
-			else if (m > b && m > e) {
-				output++;
-			}
+			
+			maxes1[0] = maxes[0];
+			maxes1[1] = maxes[1];
+			maxes1[2] = maxes[2];
+			
 		}
 		
 		out.println(output);
